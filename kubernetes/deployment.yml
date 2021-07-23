@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipit-deployment
+  namespace: {NAMESPACE}
+  labels:
+    app: shipit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shipit
+  template:
+    metadata:
+      labels:
+        app: shipit
+    spec:
+      containers:
+      - name: shipit
+        image: xom-ecomm-acr02-registry.cn-shanghai.cr.aliyuncs.com/tootest/shipit:GITHUB_SHA
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+      imagePullSecrets:
+        - name: alibaba-registry-credential-shipit
+

@@ -1,3 +1,5 @@
+# Clone from https://github.com/18chetanpatel/shipit
+
 # shipit - 0.0.1
 
 E-Commerce website template - Vuetify
